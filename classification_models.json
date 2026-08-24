@@ -1,0 +1,328 @@
+{
+  "classification": [
+    {
+      "model_name": "Logistic Regression",
+      "model_key": "logistic_regression",
+      "type": "classification",
+      "algorithm_family": "linear_model",
+      "ensemble": false,
+      "computational_cost": "low",
+      "hyperparameter_sensitivity": "low",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": false,
+      "requires_feature_scaling": true,
+      "memory_usage": "low",
+      "prediction_speed": "fast",
+      "strengths": [
+        "Simple and interpretable",
+        "Works well with linearly separable data",
+        "Fast to train and predict"
+      ],
+      "weaknesses": [
+        "Limited to linear decision boundaries",
+        "Performance drops on complex datasets"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 50,
+        "max_rows": 1000000,
+        "feature_types": ["numeric", "categorical_encoded"],
+        "max_features": 5000,
+        "class_balance": "any"
+      },
+      "avoid_if": [
+        "Highly non-linear relationships",
+        "High multicollinearity without regularization"
+      ]
+    },
+    {
+      "model_name": "Naive Bayes",
+      "model_key": "naive_bayes",
+      "type": "classification",
+      "algorithm_family": "probabilistic",
+      "ensemble": false,
+      "computational_cost": "low",
+      "hyperparameter_sensitivity": "low",
+      "training_stability": "stable",
+      "feature_importance": false,
+      "handles_missing_values": false,
+      "requires_feature_scaling": false,
+      "memory_usage": "low",
+      "prediction_speed": "fast",
+      "strengths": [
+        "Very fast and simple",
+        "Works well with conditionally independent features",
+        "Good baseline model"
+      ],
+      "weaknesses": [
+        "Assumes feature independence",
+        "Struggles with correlated features"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 20,
+        "max_rows": 2000000,
+        "feature_types": ["numeric", "categorical"],
+        "max_features": 5000,
+        "class_balance": "any"
+      },
+      "avoid_if": [
+        "Strongly correlated features",
+        "Complex non-linear relationships"
+      ]
+    },
+    {
+      "model_name": "Decision Tree Classifier",
+      "model_key": "decision_tree_classifier",
+      "type": "classification",
+      "algorithm_family": "tree_based",
+      "ensemble": false,
+      "computational_cost": "low",
+      "hyperparameter_sensitivity": "medium",
+      "training_stability": "moderate",
+      "feature_importance": true,
+      "handles_missing_values": false,
+      "requires_feature_scaling": false,
+      "memory_usage": "low",
+      "prediction_speed": "fast",
+      "strengths": [
+        "Interpretable results",
+        "Handles both numeric and categorical features",
+        "Captures non-linear relationships"
+      ],
+      "weaknesses": [
+        "Prone to overfitting without pruning",
+        "Unstable with small data changes"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 50,
+        "max_rows": 200000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 1000,
+        "class_balance": "any"
+      },
+      "avoid_if": [
+        "High noise without regularization"
+      ]
+    },
+    {
+      "model_name": "Random Forest Classifier",
+      "model_key": "random_forest_classifier",
+      "type": "classification",
+      "algorithm_family": "tree_based",
+      "ensemble": true,
+      "computational_cost": "medium",
+      "hyperparameter_sensitivity": "medium",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": false,
+      "requires_feature_scaling": false,
+      "memory_usage": "medium",
+      "prediction_speed": "medium",
+      "strengths": [
+        "Reduces overfitting compared to single trees",
+        "Handles mixed data types",
+        "Robust to outliers"
+      ],
+      "weaknesses": [
+        "Less interpretable",
+        "Slower than single trees"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 50,
+        "max_rows": 1000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "any"
+      },
+      "avoid_if": [
+        "Severe class imbalance without class weights"
+      ]
+    },
+    {
+      "model_name": "Extra Trees Classifier",
+      "model_key": "extra_trees_classifier",
+      "type": "classification",
+      "algorithm_family": "tree_based",
+      "ensemble": true,
+      "computational_cost": "medium",
+      "hyperparameter_sensitivity": "medium",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": false,
+      "requires_feature_scaling": false,
+      "memory_usage": "medium",
+      "prediction_speed": "medium",
+      "strengths": [
+        "Faster than Random Forest",
+        "Low variance due to full randomization"
+      ],
+      "weaknesses": [
+        "Slightly less accurate than Random Forest in some cases"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 50,
+        "max_rows": 1000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "any"
+      },
+      "avoid_if": []
+    },
+    {
+      "model_name": "Gradient Boosting Classifier",
+      "model_key": "gradient_boosting_classifier",
+      "type": "classification",
+      "algorithm_family": "boosting",
+      "ensemble": true,
+      "computational_cost": "high",
+      "hyperparameter_sensitivity": "high",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": false,
+      "requires_feature_scaling": false,
+      "memory_usage": "high",
+      "prediction_speed": "medium",
+      "strengths": [
+        "High accuracy on tabular data",
+        "Can capture complex patterns"
+      ],
+      "weaknesses": [
+        "Prone to overfitting without proper tuning",
+        "Slower training"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 200,
+        "max_rows": 2000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "any"
+      },
+      "avoid_if": []
+    },
+    {
+      "model_name": "XGBoost Classifier",
+      "model_key": "xgboost_classifier",
+      "type": "classification",
+      "algorithm_family": "boosting",
+      "ensemble": true,
+      "computational_cost": "medium",
+      "hyperparameter_sensitivity": "high",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": true,
+      "requires_feature_scaling": false,
+      "memory_usage": "medium",
+      "prediction_speed": "medium",
+      "strengths": [
+        "State-of-the-art performance on tabular data",
+        "Built-in regularization",
+        "Handles missing values natively"
+      ],
+      "weaknesses": [
+        "High memory usage on large datasets"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 200,
+        "max_rows": 1000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "any"
+      },
+      "avoid_if": []
+    },
+    {
+      "model_name": "LightGBM Classifier",
+      "model_key": "lightgbm_classifier",
+      "type": "classification",
+      "algorithm_family": "boosting",
+      "ensemble": true,
+      "computational_cost": "medium",
+      "hyperparameter_sensitivity": "high",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": false,
+      "requires_feature_scaling": false,
+      "memory_usage": "low",
+      "prediction_speed": "fast",
+      "strengths": [
+        "Very fast training and prediction",
+        "Handles large datasets well",
+        "Supports categorical features directly"
+      ],
+      "weaknesses": [
+        "Can overfit small datasets"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 200,
+        "max_rows": 5000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "any"
+      },
+      "avoid_if": []
+    },
+    {
+      "model_name": "CatBoost Classifier",
+      "model_key": "catboost_classifier",
+      "type": "classification",
+      "algorithm_family": "boosting",
+      "ensemble": true,
+      "computational_cost": "medium",
+      "hyperparameter_sensitivity": "medium",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": true,
+      "requires_feature_scaling": false,
+      "memory_usage": "medium",
+      "prediction_speed": "medium",
+      "strengths": [
+        "Excellent with categorical data",
+        "Minimal hyperparameter tuning required"
+      ],
+      "weaknesses": [
+        "Slower training than LightGBM"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 1000,
+        "max_rows": 2000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "any"
+      },
+      "avoid_if": []
+    },
+    {
+      "model_name": "Support Vector Machine (SVM)",
+      "model_key": "svm_classifier",
+      "type": "classification",
+      "algorithm_family": "kernel_based",
+      "ensemble": false,
+      "computational_cost": "high",
+      "hyperparameter_sensitivity": "high",
+      "training_stability": "moderate",
+      "feature_importance": false,
+      "handles_missing_values": false,
+      "requires_feature_scaling": true,
+      "memory_usage": "high",
+      "prediction_speed": "slow",
+      "strengths": [
+        "Effective in high-dimensional spaces",
+        "Works well with clear margin separation"
+      ],
+      "weaknesses": [
+        "Slow on large datasets",
+        "Requires careful tuning of kernel parameters"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 50,
+        "max_rows": 200000,
+        "feature_types": ["numeric", "categorical_encoded"],
+        "max_features": 5000,
+        "class_balance": "any"
+      },
+      "avoid_if": [
+        "Extremely large datasets"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,388 @@
+{
+  "regression": [
+    {
+      "model_name": "Linear Regression",
+      "model_key": "linear_regression",
+      "type": "regression",
+      "algorithm_family": "linear_model",
+      "ensemble": false,
+      "computational_cost": "low",
+      "hyperparameter_sensitivity": "low",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": false,
+      "requires_feature_scaling": true,
+      "memory_usage": "low",
+      "prediction_speed": "fast",
+      "strengths": [
+        "Simple and interpretable",
+        "Fast to train and predict",
+        "Baseline for regression tasks"
+      ],
+      "weaknesses": [
+        "Cannot capture non-linear relationships",
+        "Sensitive to multicollinearity"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 50,
+        "max_rows": 1000000,
+        "feature_types": ["numeric", "categorical_encoded"],
+        "max_features": 5000,
+        "class_balance": "N/A"
+      },
+      "avoid_if": [
+        "Highly non-linear data",
+        "High multicollinearity without regularization"
+      ]
+    },
+    {
+      "model_name": "Ridge Regression",
+      "model_key": "ridge_regression",
+      "type": "regression",
+      "algorithm_family": "linear_model",
+      "ensemble": false,
+      "computational_cost": "low",
+      "hyperparameter_sensitivity": "medium",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": false,
+      "requires_feature_scaling": true,
+      "memory_usage": "low",
+      "prediction_speed": "fast",
+      "strengths": [
+        "Reduces overfitting via L2 regularization",
+        "Handles multicollinearity better than linear regression"
+      ],
+      "weaknesses": [
+        "Still assumes linear relationships",
+        "Limited interpretability of coefficients"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 50,
+        "max_rows": 1000000,
+        "feature_types": ["numeric", "categorical_encoded"],
+        "max_features": 5000,
+        "class_balance": "N/A"
+      },
+      "avoid_if": [
+        "Highly non-linear data"
+      ]
+    },
+    {
+      "model_name": "Lasso Regression",
+      "model_key": "lasso_regression",
+      "type": "regression",
+      "algorithm_family": "linear_model",
+      "ensemble": false,
+      "computational_cost": "low",
+      "hyperparameter_sensitivity": "medium",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": false,
+      "requires_feature_scaling": true,
+      "memory_usage": "low",
+      "prediction_speed": "fast",
+      "strengths": [
+        "Performs feature selection automatically",
+        "Reduces overfitting via L1 regularization"
+      ],
+      "weaknesses": [
+        "Sensitive to correlated features",
+        "Cannot capture non-linear relationships"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 50,
+        "max_rows": 1000000,
+        "feature_types": ["numeric", "categorical_encoded"],
+        "max_features": 5000,
+        "class_balance": "N/A"
+      },
+      "avoid_if": [
+        "Highly non-linear data"
+      ]
+    },
+    {
+      "model_name": "Elastic Net Regression",
+      "model_key": "elastic_net_regression",
+      "type": "regression",
+      "algorithm_family": "linear_model",
+      "ensemble": false,
+      "computational_cost": "low",
+      "hyperparameter_sensitivity": "medium",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": false,
+      "requires_feature_scaling": true,
+      "memory_usage": "low",
+      "prediction_speed": "fast",
+      "strengths": [
+        "Combines L1 and L2 regularization",
+        "Balances feature selection and coefficient shrinkage"
+      ],
+      "weaknesses": [
+        "Cannot capture non-linear relationships",
+        "Requires careful tuning of alpha parameters"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 50,
+        "max_rows": 1000000,
+        "feature_types": ["numeric", "categorical_encoded"],
+        "max_features": 5000,
+        "class_balance": "N/A"
+      },
+      "avoid_if": [
+        "Highly non-linear data"
+      ]
+    },
+    {
+      "model_name": "Decision Tree Regressor",
+      "model_key": "decision_tree_regressor",
+      "type": "regression",
+      "algorithm_family": "tree_based",
+      "ensemble": false,
+      "computational_cost": "low",
+      "hyperparameter_sensitivity": "medium",
+      "training_stability": "moderate",
+      "feature_importance": true,
+      "handles_missing_values": false,
+      "requires_feature_scaling": false,
+      "memory_usage": "low",
+      "prediction_speed": "fast",
+      "strengths": [
+        "Captures non-linear relationships",
+        "Interpretable and handles mixed feature types"
+      ],
+      "weaknesses": [
+        "Prone to overfitting",
+        "Unstable to small data changes"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 50,
+        "max_rows": 200000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 1000,
+        "class_balance": "N/A"
+      },
+      "avoid_if": [
+        "High noise without pruning"
+      ]
+    },
+    {
+      "model_name": "Random Forest Regressor",
+      "model_key": "random_forest_regressor",
+      "type": "regression",
+      "algorithm_family": "tree_based",
+      "ensemble": true,
+      "computational_cost": "medium",
+      "hyperparameter_sensitivity": "medium",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": false,
+      "requires_feature_scaling": false,
+      "memory_usage": "medium",
+      "prediction_speed": "medium",
+      "strengths": [
+        "Reduces overfitting compared to single trees",
+        "Handles mixed data types robustly"
+      ],
+      "weaknesses": [
+        "Less interpretable",
+        "Slower than single trees"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 50,
+        "max_rows": 1000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "N/A"
+      },
+      "avoid_if": []
+    },
+    {
+      "model_name": "Extra Trees Regressor",
+      "model_key": "extra_trees_regressor",
+      "type": "regression",
+      "algorithm_family": "tree_based",
+      "ensemble": true,
+      "computational_cost": "medium",
+      "hyperparameter_sensitivity": "medium",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": false,
+      "requires_feature_scaling": false,
+      "memory_usage": "medium",
+      "prediction_speed": "medium",
+      "strengths": [
+        "Faster than Random Forest",
+        "Low variance due to full randomization"
+      ],
+      "weaknesses": [
+        "Slightly less accurate than Random Forest in some cases"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 50,
+        "max_rows": 1000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "N/A"
+      },
+      "avoid_if": []
+    },
+    {
+      "model_name": "Gradient Boosting Regressor",
+      "model_key": "gradient_boosting_regressor",
+      "type": "regression",
+      "algorithm_family": "boosting",
+      "ensemble": true,
+      "computational_cost": "high",
+      "hyperparameter_sensitivity": "high",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": false,
+      "requires_feature_scaling": false,
+      "memory_usage": "high",
+      "prediction_speed": "medium",
+      "strengths": [
+        "High accuracy on tabular data",
+        "Captures complex patterns"
+      ],
+      "weaknesses": [
+        "Prone to overfitting without tuning",
+        "Slower training"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 200,
+        "max_rows": 2000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "N/A"
+      },
+      "avoid_if": []
+    },
+    {
+      "model_name": "XGBoost Regressor",
+      "model_key": "xgboost_regressor",
+      "type": "regression",
+      "algorithm_family": "boosting",
+      "ensemble": true,
+      "computational_cost": "medium",
+      "hyperparameter_sensitivity": "high",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": true,
+      "requires_feature_scaling": false,
+      "memory_usage": "medium",
+      "prediction_speed": "medium",
+      "strengths": [
+        "State-of-the-art performance on tabular data",
+        "Handles missing values natively"
+      ],
+      "weaknesses": [
+        "High memory usage on large datasets"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 200,
+        "max_rows": 1000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "N/A"
+      },
+      "avoid_if": []
+    },
+    {
+      "model_name": "LightGBM Regressor",
+      "model_key": "lightgbm_regressor",
+      "type": "regression",
+      "algorithm_family": "boosting",
+      "ensemble": true,
+      "computational_cost": "medium",
+      "hyperparameter_sensitivity": "high",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": false,
+      "requires_feature_scaling": false,
+      "memory_usage": "low",
+      "prediction_speed": "fast",
+      "strengths": [
+        "Very fast and memory-efficient",
+        "Handles large datasets well"
+      ],
+      "weaknesses": [
+        "Can overfit small datasets"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 200,
+        "max_rows": 5000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "N/A"
+      },
+      "avoid_if": []
+    },
+    {
+      "model_name": "CatBoost Regressor",
+      "model_key": "catboost_regressor",
+      "type": "regression",
+      "algorithm_family": "boosting",
+      "ensemble": true,
+      "computational_cost": "medium",
+      "hyperparameter_sensitivity": "medium",
+      "training_stability": "stable",
+      "feature_importance": true,
+      "handles_missing_values": true,
+      "requires_feature_scaling": false,
+      "memory_usage": "medium",
+      "prediction_speed": "medium",
+      "strengths": [
+        "Excellent with categorical features",
+        "Minimal hyperparameter tuning needed"
+      ],
+      "weaknesses": [
+        "Slower training than LightGBM"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 1000,
+        "max_rows": 2000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "N/A"
+      },
+      "avoid_if": []
+    },
+    {
+      "model_name": "MLP Regressor",
+      "model_key": "mlp_regressor",
+      "type": "regression",
+      "algorithm_family": "neural_network",
+      "ensemble": false,
+      "computational_cost": "high",
+      "hyperparameter_sensitivity": "high",
+      "training_stability": "moderate",
+      "feature_importance": false,
+      "handles_missing_values": false,
+      "requires_feature_scaling": true,
+      "memory_usage": "high",
+      "prediction_speed": "slow",
+      "strengths": [
+        "Captures complex non-linear relationships",
+        "Flexible architecture"
+      ],
+      "weaknesses": [
+        "Requires careful tuning",
+        "High computational cost",
+        "May overfit on small datasets"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 1000,
+        "max_rows": 500000,
+        "feature_types": ["numeric"],
+        "max_features": 500,
+        "class_balance": "N/A"
+      },
+      "avoid_if": [
+        "Small datasets",
+        "High missing values"
+      ]
+    }
+  ]
+}

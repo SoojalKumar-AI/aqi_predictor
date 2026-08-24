@@ -1,0 +1,64 @@
+# .github/workflows/daily_pipeline.yml
+name: Daily AQI Data & Retrain
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # 03:00 UTC daily
+  workflow_dispatch:       # ✅ allows manual run
+
+# Needed ONLY if you enable the commit-back step
+permissions:
+  contents: write
+
+# Avoid overlapping runs if one is still going
+concurrency:
+  group: aqi-daily
+  cancel-in-progress: true
+
+jobs:
+  retrain:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Collect latest data (sliding window)
+        env:
+          MONTHS_BACK: 24            # add any API keys here via: ${{ secrets.MY_KEY }}
+        run: python scripts/data_collect_update.py
+
+      - name: Train daily models
+        env:
+          EXPLAIN: "1"               # set to "0" to skip SHAP CSVs
+        run: python scripts/train_daily.py
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: models-and-datasets
+          path: |
+            models/**
+            data/**
+            datasets_per_target/**
+          retention-days: 7
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data models datasets_per_target
+          git commit -m "Daily refresh $(date -u +'%Y-%m-%d')" || echo "No changes to commit"
+          git push

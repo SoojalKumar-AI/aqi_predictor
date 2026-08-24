@@ -1,0 +1,40 @@
+# render.yaml
+services:
+  - type: web
+    name: aqi-api
+    env: python
+    plan: free
+    region: frankfurt  # or oregon
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: |
+      uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: UVICORN_LOG_LEVEL
+        value: "info"
+      # Optionally restrict CORS in app/main.py via env if you added support
+      # - key: CORS_ORIGINS
+      #   value: "https://aqi-ui.onrender.com"
+
+  - type: web
+    name: aqi-ui
+    env: python
+    plan: free
+    region: frankfurt
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: |
+      streamlit run streamlit_app/Home.py --server.port $PORT --server.address 0.0.0.0
+    autoDeploy: true
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      # Set this AFTER the API is created so you can paste its URL
+      - key: API_URL
+        value: "https://aqi-api.onrender.com"

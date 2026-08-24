@@ -1,0 +1,146 @@
+{
+  "ensemble_strategies": [
+    {
+      "strategy_name": "Voting Ensemble",
+      "strategy_key": "voting_ensemble",
+      "type": "both",
+      "ensemble_type": "bagging",
+      "description": "Aggregates predictions from multiple diverse base models using majority vote (classification) or averaging (regression).",
+      "decision_drivers": {
+        "base_model_diversity": "low|medium|high",
+        "dataset_complexity": "low|medium",
+        "computational_budget": "low|medium",
+        "primary_metric": "any",
+        "handles_missing_values": false,
+        "num_base_models": ">=2"
+      },
+      "strengths": [
+        "Simple and fast",
+        "Reduces variance",
+        "Improves performance without heavy tuning"
+      ],
+      "weaknesses": [
+        "Cannot capture interactions between models",
+        "Dependent on base model diversity"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 500,
+        "max_rows": 2000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "any"
+      },
+      "avoid_if": [
+        "Very small datasets",
+        "All base models are very similar",
+        "Low computational budget"
+      ]
+    },
+    {
+      "strategy_name": "Stacking Ensemble",
+      "strategy_key": "stacking_ensemble",
+      "type": "both",
+      "ensemble_type": "stacking",
+      "description": "Trains a meta-model on top of base model predictions to optimize final output, capturing interactions between models.",
+      "decision_drivers": {
+        "base_model_diversity": "medium|high",
+        "dataset_complexity": "medium|high",
+        "computational_budget": "medium|high",
+        "primary_metric": "any",
+        "handles_missing_values": true,
+        "num_base_models": ">=3"
+      },
+      "strengths": [
+        "Captures interactions between base models",
+        "Often achieves highest predictive performance"
+      ],
+      "weaknesses": [
+        "High computational cost",
+        "Requires careful cross-validation to avoid overfitting"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 1000,
+        "max_rows": 1000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "any"
+      },
+      "avoid_if": [
+        "Small datasets",
+        "Limited computational resources",
+        "Very low diversity between base models"
+      ]
+    },
+    {
+      "strategy_name": "Blending Ensemble",
+      "strategy_key": "blending_ensemble",
+      "type": "both",
+      "ensemble_type": "stacking_variant",
+      "description": "Simpler stacking variant using holdout set for meta-model training instead of full cross-validation.",
+      "decision_drivers": {
+        "base_model_diversity": "medium|high",
+        "dataset_complexity": "medium",
+        "computational_budget": "medium",
+        "primary_metric": "any",
+        "handles_missing_values": true,
+        "num_base_models": ">=3"
+      },
+      "strengths": [
+        "Faster than full stacking",
+        "Reduces training time while improving predictions"
+      ],
+      "weaknesses": [
+        "Less robust than cross-validated stacking",
+        "Performance depends on holdout set quality"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 1000,
+        "max_rows": 1000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "any"
+      },
+      "avoid_if": [
+        "Small datasets",
+        "Highly imbalanced data without resampling",
+        "Low base model diversity"
+      ]
+    },
+    {
+      "strategy_name": "Bagging Ensemble",
+      "strategy_key": "bagging_ensemble",
+      "type": "both",
+      "ensemble_type": "bagging",
+      "description": "Trains multiple base models on bootstrapped subsets of the data and aggregates predictions to reduce variance.",
+      "decision_drivers": {
+        "base_model_diversity": "medium|high",
+        "dataset_complexity": "medium",
+        "computational_budget": "medium",
+        "primary_metric": "any",
+        "handles_missing_values": false,
+        "num_base_models": ">=3"
+      },
+      "strengths": [
+        "Reduces variance",
+        "Robust to overfitting",
+        "Works well with unstable base models"
+      ],
+      "weaknesses": [
+        "Does not reduce bias",
+        "Computational cost grows with number of base models"
+      ],
+      "suitable_dataset_conditions": {
+        "min_rows": 500,
+        "max_rows": 2000000,
+        "feature_types": ["numeric", "categorical", "mixed"],
+        "max_features": 5000,
+        "class_balance": "any"
+      },
+      "avoid_if": [
+        "Very small datasets",
+        "Base models are very stable",
+        "Low computational budget"
+      ]
+    }
+  ]
+}
