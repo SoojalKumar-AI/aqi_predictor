@@ -1,46 +1,46 @@
 {
   "pm2_5_t+3h": {
     "model": "catboost_regressor",
-    "cv_score": 0.9467149993684213,
-    "rmse": 11.527433284871158,
-    "mse": 132.88171813715547,
-    "r2": 0.9467149993684213,
-    "mae": 8.059041476268542,
-    "trained_at": "2026-08-24T09:00:18.596447Z",
-    "model_path": "E:\\AQI\\My10ShineProject\\aqi-prediction-system\\models\\pm2_5_tplus3h_best.joblib",
-    "shap_summary": "E:\\AQI\\My10ShineProject\\aqi-prediction-system\\models\\shap\\pm2_5_tplus3h_shap.csv"
+    "cv_score": 0.9486226889019809,
+    "rmse": 11.445013687428485,
+    "mse": 130.98833830542537,
+    "r2": 0.9486226889019809,
+    "mae": 7.988487712012717,
+    "trained_at": "2026-08-25T03:55:22.661146Z",
+    "model_path": "/home/runner/work/aqi_predictor/aqi_predictor/models/pm2_5_tplus3h_best.joblib",
+    "shap_summary": "/home/runner/work/aqi_predictor/aqi_predictor/models/shap/pm2_5_tplus3h_shap.csv"
   },
   "pm2_5_t+6h": {
     "model": "lightgbm_regressor",
-    "cv_score": 0.9155182194537753,
-    "rmse": 14.387464765744364,
-    "mse": 206.99914238553552,
-    "r2": 0.9155182194537753,
-    "mae": 10.224723404698295,
-    "trained_at": "2026-08-24T09:01:51.766485Z",
-    "model_path": "E:\\AQI\\My10ShineProject\\aqi-prediction-system\\models\\pm2_5_tplus6h_best.joblib",
-    "shap_summary": "E:\\AQI\\My10ShineProject\\aqi-prediction-system\\models\\shap\\pm2_5_tplus6h_shap.csv"
+    "cv_score": 0.9176632656029948,
+    "rmse": 14.172564037317692,
+    "mse": 200.86157139187074,
+    "r2": 0.9176632656029948,
+    "mae": 10.23149516160801,
+    "trained_at": "2026-08-25T03:59:12.055401Z",
+    "model_path": "/home/runner/work/aqi_predictor/aqi_predictor/models/pm2_5_tplus6h_best.joblib",
+    "shap_summary": "/home/runner/work/aqi_predictor/aqi_predictor/models/shap/pm2_5_tplus6h_shap.csv"
   },
   "pm10_t+3h": {
     "model": "lightgbm_regressor",
-    "cv_score": 0.8972903641094128,
-    "rmse": 25.227093204259727,
-    "mse": 636.4062315364073,
-    "r2": 0.8972903641094128,
-    "mae": 14.144064452647493,
-    "trained_at": "2026-08-24T09:03:25.907968Z",
-    "model_path": "E:\\AQI\\My10ShineProject\\aqi-prediction-system\\models\\pm10_tplus3h_best.joblib",
-    "shap_summary": "E:\\AQI\\My10ShineProject\\aqi-prediction-system\\models\\shap\\pm10_tplus3h_shap.csv"
+    "cv_score": 0.8983611927412154,
+    "rmse": 24.7220135703892,
+    "mse": 611.1779549745078,
+    "r2": 0.8983611927412154,
+    "mae": 14.282406336535223,
+    "trained_at": "2026-08-25T04:02:32.528065Z",
+    "model_path": "/home/runner/work/aqi_predictor/aqi_predictor/models/pm10_tplus3h_best.joblib",
+    "shap_summary": "/home/runner/work/aqi_predictor/aqi_predictor/models/shap/pm10_tplus3h_shap.csv"
   },
   "pm10_t+6h": {
     "model": "xgboost_regressor",
-    "cv_score": 0.8154217297741182,
-    "rmse": 32.68026841075189,
-    "mse": 1067.999943398788,
-    "r2": 0.8154217297741182,
-    "mae": 18.340275871697166,
-    "trained_at": "2026-08-24T09:03:58.416827Z",
-    "model_path": "E:\\AQI\\My10ShineProject\\aqi-prediction-system\\models\\pm10_tplus6h_best.joblib",
-    "shap_summary": "E:\\AQI\\My10ShineProject\\aqi-prediction-system\\models\\shap\\pm10_tplus6h_shap.csv"
+    "cv_score": 0.8280201150364508,
+    "rmse": 30.786540341865237,
+    "mse": 947.8110662212956,
+    "r2": 0.8280201150364508,
+    "mae": 18.61080935826208,
+    "trained_at": "2026-08-25T04:03:31.668136Z",
+    "model_path": "/home/runner/work/aqi_predictor/aqi_predictor/models/pm10_tplus6h_best.joblib",
+    "shap_summary": "/home/runner/work/aqi_predictor/aqi_predictor/models/shap/pm10_tplus6h_shap.csv"
   }
 }
