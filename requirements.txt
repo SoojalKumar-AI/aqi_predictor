@@ -1,7 +1,9 @@
 pandas
 numpy
 requests
-scikit-learn
+# The joblib model bundles were trained with scikit-learn 1.7.2.
+# Keep the serving runtime aligned with the serialized SimpleImputer state.
+scikit-learn==1.7.2
 lightgbm
 xgboost
 catboost
