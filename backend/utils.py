@@ -137,7 +137,7 @@ def _rebuild_features_from_raw(data_dir: Path | None, needed_features: list[str]
     for col in needed_features:
         if col not in last.columns:
             last[col] = 0.0
-    last = last[needed_features].fillna(method="ffill").fillna(method="bfill").fillna(0.0)
+    last = last[needed_features].ffill().bfill().fillna(0.0)
     return last
 
 # --------- Public: build latest feature row -------------------------------

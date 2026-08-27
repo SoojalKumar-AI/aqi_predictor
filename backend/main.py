@@ -99,7 +99,7 @@ def timeseries(hours: int = 168):
     df = df.replace([np.inf, -np.inf], np.nan)
     cols = [c for c in df.columns if c != "time"]
     if cols:
-        df[cols] = df[cols].fillna(method="ffill").fillna(method="bfill")
+        df[cols] = df[cols].ffill().bfill()
         df[cols] = df[cols].fillna(df[cols].mean()).fillna(0.0)
 
     payload = {
