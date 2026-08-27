@@ -5,8 +5,8 @@ __pycache__/
 .env
 
 # Generated datasets
-data/*.csv
-datasets_per_target/*.csv
+# data/*.csv
+# datasets_per_target/*.csv
 
 # Local runtime files
 *.log
