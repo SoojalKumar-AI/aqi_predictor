@@ -222,3 +222,5 @@ It can also be started manually from the repository's **Actions** tab by selecti
 
 After deploying the API, set the dashboard's `API_URL` to the deployed API URL if it differs from the value in `render.yaml`. Set `CORS_ORIGINS` on the API to the dashboard URL when restricting cross-origin access.
 
+
+## Check Live here: https://soojalkumar-ai-aqi-predictor-streamlit-apphome-lf7r23.streamlit.app/
