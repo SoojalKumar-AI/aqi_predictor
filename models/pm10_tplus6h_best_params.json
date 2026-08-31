@@ -1,6 +1,6 @@
 {
   "xgboost_regressor": {
-    "timestamp": "2026-08-30T09:12:49.013462Z",
+    "timestamp": "2026-08-31T09:40:24.391515Z",
     "task_type": "regression",
     "scorer": "r2",
     "cv_folds": 3,
@@ -12,7 +12,7 @@
       "k_top_requested": 50,
       "k_top_effective": 50
     },
-    "best_cv_score": 0.6417906316921984,
+    "best_cv_score": 0.6706727177783414,
     "best_params": {},
     "selected_features_after_selection": [
       "num__carbon_monoxide",
@@ -22,6 +22,7 @@
       "num__wind_speed_10m",
       "num__hour",
       "num__pm2_5_avg_3h",
+      "num__temperature_avg_3h",
       "num__pm2_5_change_rate",
       "num__pm10_change_rate",
       "num__ozone_change_rate",
@@ -57,7 +58,6 @@
       "num__pm10_lag_3h",
       "num__pm10_lag_24h",
       "num__pm10_lag_168h",
-      "num__temperature_2m_lag_24h",
       "num__relative_humidity_2m_lag_168h",
       "num__ozone_lag_1h",
       "num__ozone_lag_3h",
