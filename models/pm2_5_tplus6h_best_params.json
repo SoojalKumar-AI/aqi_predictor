@@ -1,6 +1,6 @@
 {
   "lightgbm_regressor": {
-    "timestamp": "2026-09-03T08:00:29.500014Z",
+    "timestamp": "2026-09-04T07:56:47.007426Z",
     "task_type": "regression",
     "scorer": "r2",
     "cv_folds": 3,
@@ -12,7 +12,7 @@
       "k_top_requested": 50,
       "k_top_effective": 50
     },
-    "best_cv_score": 0.8689123063561738,
+    "best_cv_score": 0.8685857767025954,
     "best_params": {},
     "selected_features_after_selection": [
       "num__carbon_monoxide",
