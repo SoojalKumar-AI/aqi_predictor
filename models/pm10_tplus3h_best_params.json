@@ -1,6 +1,6 @@
 {
   "lightgbm_regressor": {
-    "timestamp": "2026-11-10T11:04:14.918626Z",
+    "timestamp": "2026-11-11T10:43:40.599895Z",
     "task_type": "regression",
     "scorer": "r2",
     "cv_folds": 3,
@@ -12,7 +12,7 @@
       "k_top_requested": 50,
       "k_top_effective": 50
     },
-    "best_cv_score": 0.8049427590633144,
+    "best_cv_score": 0.8120615049392536,
     "best_params": {},
     "selected_features_after_selection": [
       "num__carbon_monoxide",
@@ -21,7 +21,6 @@
       "num__sulphur_dioxide",
       "num__temperature_2m",
       "num__relative_humidity_2m",
-      "num__hour",
       "num__pm2_5_avg_3h",
       "num__temperature_avg_3h",
       "num__pm2_5_change_rate",
@@ -31,7 +30,6 @@
       "num__temp_pm2_5",
       "num__humidity_pm2_5",
       "num__hour_sin",
-      "num__wday_cos",
       "num__wind_dir_sin",
       "num__wind_dir_cos",
       "num__pm2_5_mean_6h",
@@ -63,8 +61,10 @@
       "num__temperature_2m_lag_168h",
       "num__relative_humidity_2m_lag_1h",
       "num__relative_humidity_2m_lag_24h",
+      "num__ozone_lag_1h",
       "num__ozone_lag_24h",
-      "num__ozone_lag_168h"
+      "num__ozone_lag_168h",
+      "num__wind_speed_10m_lag_168h"
     ]
   }
 }
