@@ -1,6 +1,6 @@
 {
   "catboost_regressor": {
-    "timestamp": "2026-11-13T10:44:30.574695Z",
+    "timestamp": "2026-11-14T09:58:27.945706Z",
     "task_type": "regression",
     "scorer": "r2",
     "cv_folds": 3,
@@ -12,7 +12,7 @@
       "k_top_requested": 50,
       "k_top_effective": 50
     },
-    "best_cv_score": 0.9262736133614737,
+    "best_cv_score": 0.922096807751597,
     "best_params": {},
     "selected_features_after_selection": [
       "num__carbon_monoxide",
